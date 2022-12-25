@@ -1,6 +1,6 @@
-{
-    type: ADD_MOVIES
-}
-{
-    type: DELETE_MOVIES
-}
+// {
+//     type: ADD_MOVIES
+// }
+// {
+//     type: DELETE_MOVIES
+// }
