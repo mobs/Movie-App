@@ -27,9 +27,9 @@ class App extends React.Component {
   }
   
   isMovieFavourite = (movie) => {
-    const {favourites} = this.props.store.getState();
+    const { movies } = this.props.store.getState();
 
-    const index = favourites.indexOf(movie);
+    const index = movies.favourites.indexOf(movie);
     if(index !== -1){
       //found the movie
       return true;
@@ -44,7 +44,9 @@ class App extends React.Component {
     // initially we were getting an array and mappin over it but now we get an object so we should use object destructuring
     // const movies = this.props.store.getState();
 
-    const { list, favourites, showFavourites } = this.props.store.getState();
+    const { movies } = this.props.store.getState(); // {movies: {}, search: {}}
+    const { list, favourites, showFavourites } = movies;
+    
     console.log('RENDER',this.props.store.getState());
 
     const displayMovies = showFavourites ? favourites : list;
