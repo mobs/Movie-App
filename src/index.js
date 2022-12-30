@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
@@ -33,7 +33,7 @@ import './index.css';
 const logger = ({ dispatch, getState }) => (next) => (action) => {
 
   // if(typeof action !== 'function'){
-    console.log('ACTION', action);
+    // console.log('ACTION', action);
     next(action);
   // }
 };
@@ -49,11 +49,11 @@ const logger = ({ dispatch, getState }) => (next) => (action) => {
 
 const store = createStore(rootReducer, applyMiddleware(logger, thunk));
 // console.log(store);
-console.log('state', store.getState());
+// console.log('state', store.getState());
 
 export const StoreContext = createContext();
 
-console.log('StoreContext', StoreContext);
+// console.log('StoreContext', StoreContext);
 
 class Provider extends React.Component {
   render() {
@@ -73,9 +73,11 @@ class Provider extends React.Component {
 // });
 // console.log('state', store.getState());
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
 );

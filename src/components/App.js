@@ -48,9 +48,9 @@ class App extends React.Component {
     // initially we were getting an array and mappin over it but now we get an object so we should use object destructuring
     // const movies = this.props.store.getState();
     const { movies, search } = this.props.store.getState(); // will return { movies: {}, search: []}
-    console.log('movies', movies);
+    // console.log('movies', movies);
     const { list, showFavourites = [], favourites = [] } = movies;
-    console.log('RENDER',this.props.store.getState());
+    // console.log('RENDER',this.props.store.getState());
     const displayMovies = showFavourites ? favourites : list;
 
     return (

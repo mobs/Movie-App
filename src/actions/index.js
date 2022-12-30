@@ -48,7 +48,7 @@ export function handleMovieSearch(searchText) {
     fetch(url)
       .then((response) => response.json())
       .then((movie) => {
-        console.log('movie', movie);
+        // console.log('movie', movie);
         //dispatch an action
         //dispatch({ type: 'ADD_SEARCH_RESULT',movie})
         // dispatch action to save search results in store
